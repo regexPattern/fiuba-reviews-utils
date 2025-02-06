@@ -1,5 +1,5 @@
 [package]
-name = "resumidor"
+name = "resumidor_comentarios"
 edition = "2021"
 rust-version = "1.76"
 

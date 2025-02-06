@@ -1,8 +1,8 @@
 use std::{env, io::Write};
 
 use clap::{Parser, Subcommand};
-use resumidor::llm::OllamaClient;
 use reqwest::Client;
+use resumidor_comentarios::llm::OllamaClient;
 use sqlx::postgres::PgPoolOptions;
 
 const DATABASE_URL_ENV: &str = "DATABASE_URL";
@@ -48,7 +48,9 @@ async fn main() -> anyhow::Result<()> {
 
     match cli.comand {
         Subcomando::Resumir => {
-            if let Some(query) = resumidor::query_actualizacion_resumenes(llm, &db).await? {
+            if let Some(query) =
+                resumidor_comentarios::query_actualizacion_resumenes(llm, &db).await?
+            {
                 let mut file = std::fs::File::create("update.sql")?;
                 file.write_all(query.as_bytes())?;
 

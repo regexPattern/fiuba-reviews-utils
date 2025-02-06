@@ -1334,7 +1334,7 @@ dependencies = [
 ]
 
 [[package]]
-name = "resumidor"
+name = "resumidor_comentarios"
 version = "0.0.0"
 dependencies = [
  "anyhow",
